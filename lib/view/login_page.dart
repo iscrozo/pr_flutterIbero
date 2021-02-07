@@ -1,3 +1,4 @@
+import 'package:app1/util/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:app1/util/colors.dart';
 import 'package:app1/util/resize.dart';
@@ -59,7 +60,9 @@ class _LoginPageState extends State<LoginPage> {
                       fontSize: ResizeH(_Height, 20),
                       color: Colors.black,
                       fontWeight: FontWeight.bold),
-                )
+                ),
+                Text("Example",
+                style: Styles.primaryTextStyle,)
 
               ],
             ),
