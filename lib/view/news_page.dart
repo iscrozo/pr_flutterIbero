@@ -1,5 +1,4 @@
 import 'package:app1/presenter/build_view.dart';
-import 'package:app1/util/styles.dart';
 import 'package:flutter/material.dart';
 
 class NewsPage extends StatefulWidget {
@@ -11,6 +10,12 @@ class _NewsPageState extends State<NewsPage> {
   int Newsint = 1;
 
   String viewName = 'NewsList';
+
+  listTileWidget(asTitle) => ListTile(
+        title: Text(asTitle),
+        leading: Icon(Icons.my_library_books),
+        dense: true,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +53,8 @@ class _NewsPageState extends State<NewsPage> {
               },
               child: Padding(
                 padding: const EdgeInsets.all(13),
-                child: Text(
-                  '> All articles about Tesla from the last month, sorted by recent first',
-                  style: Styles.drawerOptionStyle,
-                ),
+                child: listTileWidget(
+                    '> All articles about Tesla from the last month, sorted by recent first'),
               ),
             ),
             InkWell(
@@ -63,31 +66,51 @@ class _NewsPageState extends State<NewsPage> {
               },
               child: Padding(
                 padding: const EdgeInsets.all(13),
-                child: Text(
+                child: listTileWidget(
                   '> Top business headlines in the US right now',
-                  style: Styles.drawerOptionStyle,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(13),
-              child: Text(
-                '> All articles mentioning Apple from yesterday, sorted by popular publishers first',
-                style: Styles.drawerOptionStyle,
+            InkWell(
+              onTap: () {
+                setState(() {
+                  Newsint = 3;
+                  viewName = 'NewsList';
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(13),
+                child: listTileWidget(
+                  '> All articles mentioning Apple from yesterday, sorted by popular publishers first',
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(13),
-              child: Text(
-                '> Top headlines from TechCrunch right now',
-                style: Styles.drawerOptionStyle,
+            InkWell(
+              onTap: () {
+                setState(() {
+                  Newsint = 4;
+                  viewName = 'NewsList';
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(13),
+                child: listTileWidget(
+                  '> Top headlines from TechCrunch right now',
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(13),
-              child: Text(
-                '> All articles published by the Wall Street Journal in the last 6 months, sorted by recent first',
-                style: Styles.drawerOptionStyle,
+            InkWell(
+              onTap: () {
+                setState(() {
+                  Newsint = 5;
+                  viewName = 'NewsList';
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(13),
+                child: listTileWidget(
+                  '> All articles published by the Wall Street Journal in the last 6 months, sorted by recent first',
+                ),
               ),
             ),
           ],
