@@ -13,17 +13,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      //initialRoute: '/login',
-      initialRoute: '/newpages',
+      initialRoute: '/news',
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/login':
             return MaterialPageRoute(builder: (context) => new LoginPage());
-          case '/newpages':
+          case '/news':
             return MaterialPageRoute(builder: (context) => new NewsPage());
           default:
             return null;

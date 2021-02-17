@@ -1,19 +1,119 @@
 import 'package:app1/model/news.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NewsCard extends StatelessWidget {
   final News news;
 
-  const NewsCard({Key key, this.news}) : super(key: key);
+  NewsCard({Key key, @required this.news}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
+      width: 344,
+      height: MediaQuery.of(context).size.height/1.72,
+      margin: EdgeInsets.only(top: 15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 2,
+            spreadRadius: 2,
+            color: Colors.black12
+          )
+        ]
+      ),
       child: Column(
         children: [
-          Image.network(news.image),
-          Text(news.title),
-          Text(news.author)
+          Container(
+            height: MediaQuery.of(context).size.height/4,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(10),
+                topLeft: Radius.circular(10)
+              ),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: news.urlToImage != null ? NetworkImage(news.urlToImage) : AssetImage('assets/img/backbit.png')
+              )
+            ),
+          ),
+          Flexible(
+            child: Container(
+              padding: EdgeInsets.all(13),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    news.title ?? 'Title not find',
+                    maxLines: 3,
+                    style: GoogleFonts.signika(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold
+                    )
+                  ),
+                  Text(
+                    news.author ?? 'Author not find',
+                      style: GoogleFonts.signika(
+                          fontSize: 14,
+                          color: Colors.black45,
+                          fontWeight: FontWeight.normal
+                      )
+                  ),
+
+                  Container(
+                    height: 10,
+                  ),
+
+                  Text(
+                      news.description ?? 'Description not find',
+                      maxLines: 3,
+                      style: GoogleFonts.signika(
+                          fontSize: 12,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.normal
+                      )
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              right: 13,
+              left: 13
+            ),
+            child: Center(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      icon: Icon(Icons.favorite_border_outlined),
+                      onPressed: (){
+
+                      }),
+
+                  InkWell(
+                    onTap: (){
+
+                    },
+                    child: Text(
+                      'MORE',
+                      style: GoogleFonts.signika(
+                        fontSize: 14,
+                        color: Colors.blueAccent,
+                        fontWeight: FontWeight.normal
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

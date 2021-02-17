@@ -13,6 +13,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     var _Height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
     return Scaffold(
         body: Container(
       child: Stack(
@@ -21,11 +23,13 @@ class _LoginPageState extends State<LoginPage> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('assets/img/backbit.png'),
-                    colorFilter:
-                        ColorFilter.mode(Colors.white, BlendMode.softLight))),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage('assets/img/backbit.png'),
+                colorFilter:
+                    ColorFilter.mode(Colors.white, BlendMode.softLight),
+              ),
+            ),
           ),
           Container(
             padding: EdgeInsets.only(
@@ -36,35 +40,68 @@ class _LoginPageState extends State<LoginPage> {
             height: MediaQuery.of(context).size.height / 2,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: colorAzulClaro,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(90),
-                    bottomRight: Radius.circular(90))),
+              color: colorAzulClaro,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(90),
+                bottomRight: Radius.circular(90),
+              ),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Welcome to",
-                    style: GoogleFonts.signika(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: ResizeH(_Height, 20))),
-                Image.asset(
-                  'assets/img/BitLogo.png',
-                  width: ResizeH(_Height, 157),
-                  height: ResizeH(_Height, 63),
-                  fit: BoxFit.contain,
+                Text(
+                  "Welcome to",
+                  style: GoogleFonts.signika(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: ResizeH(
+                      _Height,
+                      20,
+                    ),
+                  ),
                 ),
+                Image.asset('assets/img/BitLogo.png',
+                    width: ResizeH(_Height, 157),
+                    height: ResizeH(_Height, 63),
+                    fit: BoxFit.contain),
                 Text(
                   'Please login to continue',
                   style: GoogleFonts.signika(
-                      fontSize: ResizeH(_Height, 20),
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
+                    fontSize: ResizeH(_Height, 20),
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                Text("Example",
-                style: Styles.primaryTextStyle,)
-
+                Padding(
+                  padding: EdgeInsets.only(top: 15),
+                  child: Text(
+                    'Example',
+                    style: Styles.primaryTextStyle,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  //    margin: EdgeInsets.only(top: 100),
+                  padding: EdgeInsets.all(width * 0.1),
+                  color: Colors.red,
+                  child: Text(
+                    'Example',
+                    style: Styles.primaryTextStyle,
+                  ),
+                )
               ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: ColoredBox(
+              color: Colors.green,
+              child: Text(
+                'Example2',
+                style: Styles.primaryTextStyle,
+              ),
             ),
           ),
         ],
