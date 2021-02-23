@@ -8,4 +8,6 @@ class Styles {
   );
   static const drawerOptionStyle = TextStyle(
       fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black87);
+  static const secondaryTextStyle = TextStyle(
+      fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black87);
 }

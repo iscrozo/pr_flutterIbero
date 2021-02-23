@@ -1,8 +1,12 @@
-import 'package:app1/util/styles.dart';
-import 'package:flutter/material.dart';
 import 'package:app1/util/colors.dart';
 import 'package:app1/util/resize.dart';
+import 'package:app1/view/widgets/app_button.dart';
+import 'package:app1/view/widgets/app_text_field.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../util/colors.dart';
+import '../util/styles.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -16,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
     var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+        // resizeToAvoidBottomInset: false,
         body: Container(
       child: Stack(
         children: [
@@ -32,77 +37,123 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(
-                //top: 40,
-                top: ResizeH(_Height, 40),
-                left: 25,
-                right: 25),
-            height: MediaQuery.of(context).size.height / 2,
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              color: colorAzulClaro,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(90),
-                bottomRight: Radius.circular(90),
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Welcome to",
-                  style: GoogleFonts.signika(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: ResizeH(
-                      _Height,
-                      20,
-                    ),
-                  ),
-                ),
-                Image.asset('assets/img/BitLogo.png',
-                    width: ResizeH(_Height, 157),
-                    height: ResizeH(_Height, 63),
-                    fit: BoxFit.contain),
-                Text(
-                  'Please login to continue',
-                  style: GoogleFonts.signika(
-                    fontSize: ResizeH(_Height, 20),
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 15),
-                  child: Text(
-                    'Example',
-                    style: Styles.primaryTextStyle,
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  //    margin: EdgeInsets.only(top: 100),
-                  padding: EdgeInsets.all(width * 0.1),
-                  color: Colors.red,
-                  child: Text(
-                    'Example',
-                    style: Styles.primaryTextStyle,
-                  ),
-                )
-              ],
-            ),
+            height: MediaQuery.of(context).size.height,
+            color: colorBlanco.withAlpha(100),
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: ColoredBox(
-              color: Colors.green,
-              child: Text(
-                'Example2',
-                style: Styles.primaryTextStyle,
+          Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(
+                    //top: 40,
+                    top: ResizeH(_Height, 40),
+                    left: 25,
+                    right: 25),
+                height: _Height * 0.5,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 15,
+                    ),
+                  ],
+                  color: colorBlanco,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(130),
+                    bottomRight: Radius.circular(130),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Welcome to",
+                      style: GoogleFonts.signika(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: ResizeH(
+                          _Height,
+                          20,
+                        ),
+                      ),
+                    ),
+                    Image.asset('assets/img/BitLogo.png',
+                        width: ResizeH(_Height, 157),
+                        height: ResizeH(_Height, 63),
+                        fit: BoxFit.contain),
+                    Text(
+                      'Please login to continue',
+                      style: GoogleFonts.signika(
+                        fontSize: ResizeH(_Height, 20),
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: AppTextField(
+                        hintText: 'Username',
+                        icon: Icon(
+                          Icons.person,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: _Height * 0.02,
+                    ),
+                    Align(
+                        alignment: Alignment.center,
+                        child: AppTextField(
+                          hintText: 'Password',
+                          icon: Icon(
+                            Icons.lock,
+                            color: Colors.grey,
+                          ),
+                          obscureText: true,
+                        )),
+                    Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          'Forgot password',
+                        )),
+                    SizedBox(
+                      height: _Height * 0.05,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: AppButton(
+                        text: 'LOG IN ',
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, '/news');
+                        },
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
+              Expanded(
+                flex: 500,
+                child: SizedBox(),
+              ),
+              Text(
+                'OR',
+                style: Styles.secondaryTextStyle,
+              ),
+              Expanded(
+                flex: 1000,
+                child: SizedBox(),
+              ),
+              AppButton(
+                text: 'SING UP',
+                onPressed: () {},
+              ),
+              Expanded(
+                flex: 1000,
+                child: SizedBox(),
+              ),
+            ],
           ),
         ],
       ),

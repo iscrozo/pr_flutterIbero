@@ -1,4 +1,5 @@
 import 'package:app1/presenter/build_view.dart';
+import 'package:app1/view/widgets/drawer_option.dart';
 import 'package:flutter/material.dart';
 
 class NewsPage extends StatefulWidget {
@@ -10,12 +11,36 @@ class _NewsPageState extends State<NewsPage> {
   int Newsint = 1;
 
   String viewName = 'NewsList';
-
-  listTileWidget(asTitle) => ListTile(
-        title: Text(asTitle),
-        leading: Icon(Icons.my_library_books),
-        dense: true,
-      );
+  static const drawerOptions = <Map<String, dynamic>>[
+    {
+      'value': 1,
+      'text':
+          'All articles about Tesla from the last month, sorted by recent first',
+      'icon': Icon(Icons.description)
+    },
+    {
+      'value': 2,
+      'text': 'Top business headlines in the US right now',
+      'icon': Icon(Icons.description)
+    },
+    {
+      'value': 3,
+      'text':
+          'All articles mentioning Apple from yesterday, sorted by popular publishers first',
+      'icon': Icon(Icons.description)
+    },
+    {
+      'value': 4,
+      'text': 'Top headlines from TechCrunch right now',
+      'icon': Icon(Icons.description)
+    },
+    {
+      'value': 5,
+      'text':
+          'All articles published by the Wall Street Journal in the last 6 months, sorted by recent first',
+      'icon': Icon(Icons.description)
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,83 +61,67 @@ class _NewsPageState extends State<NewsPage> {
       ),
       drawer: Drawer(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             DrawerHeader(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: <Color>[
+                Colors.black26,
+                Colors.black12,
+                Colors.white70
+              ])),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
                 child: CircleAvatar(
-              radius: 70,
-              backgroundColor: Colors.white,
-              child: Image.network(
-                  'https://bit.institute/images/Instituto-Cursos-Programacion.png'),
-            )),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 1;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: listTileWidget(
-                    '> All articles about Tesla from the last month, sorted by recent first'),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 2;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: listTileWidget(
-                  '> Top business headlines in the US right now',
+                  radius: 70,
+                  backgroundColor: Colors.transparent,
+                  child: Image.network(
+                      'https://bit.institute/images/Instituto-Cursos-Programacion.png'),
                 ),
               ),
             ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 3;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: listTileWidget(
-                  '> All articles mentioning Apple from yesterday, sorted by popular publishers first',
-                ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: <Color>[
+                Colors.black26,
+                Colors.black12,
+                Colors.white70
+              ])),
+              child: Text(
+                "Category News",
+                textAlign: TextAlign.left,
               ),
             ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 4;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: listTileWidget(
-                  '> Top headlines from TechCrunch right now',
-                ),
+            ...drawerOptions
+                .map((option) => DrawerOption(
+                      text: option['text'],
+                      addIcon: option['icon'],
+                      onTap: () {
+                        setState(() {
+                          Newsint = option['value'];
+                          Navigator.pop(context);
+                        });
+                      },
+                    ))
+                .toList(),
+            Divider(),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: <Color>[
+                Colors.black26,
+                Colors.black12,
+                Colors.white70
+              ])),
+              child: Text(
+                "Settings",
+                textAlign: TextAlign.left,
               ),
             ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  Newsint = 5;
-                  viewName = 'NewsList';
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(13),
-                child: listTileWidget(
-                  '> All articles published by the Wall Street Journal in the last 6 months, sorted by recent first',
-                ),
-              ),
-            ),
+            ListTile(
+              title: Text("Settings"),
+            )
           ],
         ),
       ),

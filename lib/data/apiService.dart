@@ -7,7 +7,7 @@ class ApiService {
     switch (optionUrl) {
       //All articles about Tesla from the last month, sorted by recent first
       case 1:
-        return 'http://newsapi.org/v2/everything?q=tesla&from=2021-01-18&sortBy=publishedAt&apiKey=2bece0c68dc548e984a17ca714bc9986';
+        return 'http://newsapi.org/v2/everything?domains=wsj.com&apiKey=2bece0c68dc548e984a17ca714bc9986';
       //Top business headlines in the US right now
       case 2:
         return 'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=2bece0c68dc548e984a17ca714bc9986';
@@ -19,7 +19,7 @@ class ApiService {
         return 'http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=2bece0c68dc548e984a17ca714bc9986';
       //All articles published by the Wall Street Journal in the last 6 months, sorted by recent first
       case 5:
-        return 'http://newsapi.org/v2/everything?domains=wsj.com&apiKey=2bece0c68dc548e984a17ca714bc9986';
+        return 'http://newsapi.org/v2/everything?q=tesla&from=2021-01-18&sortBy=publishedAt&apiKey=2bece0c68dc548e984a17ca714bc9986';
     }
   }
 
