@@ -7,7 +7,7 @@
   <h3 align="center">Bit newspaper</h3>
 
   <p align="center">
-    Iberoamericana training project with <img src ="assets/img/iconFlutter.png" alt="Logo" width="20" height="20">
+    Iberoamericana training project with <img src ="assets/img/iconFlutter.png" alt="Logo" width="18" height="18">
     <br/>
   </p>
 </p>
@@ -16,8 +16,7 @@
 ## About Project
 
 Project iberoamericana </br>
-![imagen](https://user-images.githubusercontent.com/40553244/106688246-ba9b2c80-659b-11eb-858b-f5586da9526c.png){:height="50%" width="50%"}
-<br/>
+![imagen](https://user-images.githubusercontent.com/40553244/106688246-ba9b2c80-659b-11eb-858b-f5586da9526c.png)
 this is an project using api in a listView, etc ,..
 
 ### Prerequisites
