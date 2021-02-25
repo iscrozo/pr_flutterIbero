@@ -85,8 +85,9 @@ class BuildView extends StatelessWidget {
                                             text: 'NO',
                                             addColors: btnRojo,
                                             addBackground: Colors.white,
-                                            onPressed: () =>
-                                                Navigator.pop(context),
+                                            onPressed: () => {
+                                              // Navigator.pop(context)
+                                            },
                                           ),
                                           DialogButton(
                                             text: 'YES',
