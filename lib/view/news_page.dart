@@ -1,4 +1,5 @@
 import 'package:app1/presenter/build_view.dart';
+import 'package:app1/util/firebaseController.dart' as firebaseControl;
 import 'package:app1/view/widgets/drawer_option.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +56,11 @@ class _NewsPageState extends State<NewsPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: Icon(Icons.favorite),
+            child: Row(
+              children: [
+                Icon(Icons.favorite),
+              ],
+            ),
           )
         ],
       ),
@@ -89,7 +94,7 @@ class _NewsPageState extends State<NewsPage> {
                 Colors.white70
               ])),
               child: Text(
-                "Category News",
+                "News",
                 textAlign: TextAlign.left,
               ),
             ),
@@ -120,7 +125,12 @@ class _NewsPageState extends State<NewsPage> {
               ),
             ),
             ListTile(
-              title: Text("Settings"),
+              leading: Icon(Icons.logout),
+              title: Text("Sign Out"),
+              onTap: () {
+                firebaseControl.signOut();
+                Navigator.pushNamed(context, '/login');
+              },
             )
           ],
         ),

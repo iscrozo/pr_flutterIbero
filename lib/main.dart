@@ -1,6 +1,7 @@
 import 'package:app1/util/strings.dart';
 import 'package:app1/view/login_page.dart';
 import 'package:app1/view/news_page.dart';
+import 'package:app1/view/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 
@@ -23,7 +24,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/news',
+      initialRoute: '/login',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: (settings) {
         switch (settings.name) {
@@ -31,6 +32,8 @@ class _MyAppState extends State<MyApp> {
             return MaterialPageRoute(builder: (context) => new LoginPage());
           case '/news':
             return MaterialPageRoute(builder: (context) => new NewsPage());
+          case '/register':
+            return MaterialPageRoute(builder: (context) => new RegisterPage());
           default:
             return null;
         }

@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {
+  // variables
   final String text;
   final Function onPressed;
   final double height;
   final double width;
-
+  // constructor
   const AppButton({
     Key key,
     @required this.text,

@@ -1,7 +1,10 @@
 import 'package:app1/util/colors.dart';
+import 'package:app1/util/firebaseController.dart' as firebaseControl;
 import 'package:app1/util/resize.dart';
 import 'package:app1/view/widgets/app_button.dart';
 import 'package:app1/view/widgets/app_text_field.dart';
+import 'package:app1/view/widgets/showMessageNotify.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,6 +17,25 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  //Controllers
+  TextEditingController _textEditingControllerEmail =
+      new TextEditingController();
+  TextEditingController _textEditingControllerPassword =
+      new TextEditingController();
+  // variables
+  bool gbButtonLogin = false;
+
+  /// estado inicial de la app
+  @override
+  void initState() {
+    Initialing();
+  }
+
+  /// Metodo que inicializa
+  void Initialing() async {
+    await Firebase.initializeApp();
+  }
+
   @override
   Widget build(BuildContext context) {
     var _Height = MediaQuery.of(context).size.height;
@@ -93,9 +115,10 @@ class _LoginPageState extends State<LoginPage> {
                     Align(
                       alignment: Alignment.center,
                       child: AppTextField(
-                        hintText: 'Username',
+                        aobController: _textEditingControllerEmail,
+                        hintText: 'email',
                         icon: Icon(
-                          Icons.person,
+                          Icons.alternate_email,
                           color: Colors.grey,
                         ),
                       ),
@@ -106,6 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                     Align(
                         alignment: Alignment.center,
                         child: AppTextField(
+                          aobController: _textEditingControllerPassword,
                           hintText: 'Password',
                           icon: Icon(
                             Icons.lock,
@@ -123,11 +147,59 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: AppButton(
-                        text: 'LOG IN ',
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/news');
-                        },
+                      child: Center(
+                        child: InkWell(
+                          onTap: () {
+                            print("onclick button");
+                            setState(() {
+                              gbButtonLogin = !gbButtonLogin;
+                              if (_textEditingControllerPassword.text.isEmpty ||
+                                  _textEditingControllerEmail.text.isEmpty) {
+                                // print("fills emptys");
+                                gbButtonLogin = !gbButtonLogin;
+                                showToastMessage(
+                                    aobContext: context,
+                                    asMessage:
+                                        'Please fill in the fields before continuing');
+                              } else {
+                                // print("Fields full");
+                                gbButtonLogin = !gbButtonLogin;
+                                firebaseControl.signIn(
+                                  email: _textEditingControllerEmail.text,
+                                  password: _textEditingControllerPassword.text,
+                                  context: context,
+                                );
+                                firebaseControl.stateChanges(context);
+                              }
+                            });
+                          },
+                          hoverColor: Colors.red,
+                          focusColor: Colors.red,
+                          child: Container(
+                              padding: EdgeInsets.only(left: 15, right: 15),
+                              margin: EdgeInsets.all(10),
+                              width: MediaQuery.of(context).size.width / 2,
+                              height: MediaQuery.of(context).size.height / 25,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(90)),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.black26,
+                                      spreadRadius: 1,
+                                      blurRadius: 12)
+                                ],
+                              ),
+                              child: Center(
+                                  child: gbButtonLogin != true
+                                      ? Text("Login",
+                                          style: GoogleFonts.signika(
+                                              fontSize: 18,
+                                              color: Colors.black45,
+                                              fontWeight: FontWeight.bold))
+                                      : CircularProgressIndicator())),
+                        ),
                       ),
                     )
                   ],
@@ -147,7 +219,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
               AppButton(
                 text: 'SING UP',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/register');
+                },
               ),
               Expanded(
                 flex: 1000,

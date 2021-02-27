@@ -74,7 +74,9 @@ class NewsCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                      icon: Icon(Icons.favorite_border_outlined),
+                      icon: Icon(!true
+                          ? Icons.favorite_border_outlined
+                          : Icons.favorite),
                       onPressed: () {
                         onTapFav(news);
                       }),

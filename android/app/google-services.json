@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "633178027260",
+    "project_id": "ibero-11df1",
+    "storage_bucket": "ibero-11df1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633178027260:android:9b5abde75c182545809379",
+        "android_client_info": {
+          "package_name": "com.iscrozo.app1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633178027260-jru35l1km9ns27n2bs9ilpen9fldg5si.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iscrozo.app1",
+            "certificate_hash": "2195403ccc5c0ad0b72632df1641bba6290cf7c0"
+          }
+        },
+        {
+          "client_id": "633178027260-pvc55jj0p859ic8oji8gkgfm5uk0j707.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO2Bf9W9nM25fUBgdEVSoAYKFdkVz0dtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633178027260-pvc55jj0p859ic8oji8gkgfm5uk0j707.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
