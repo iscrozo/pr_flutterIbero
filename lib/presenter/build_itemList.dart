@@ -14,7 +14,7 @@ class buildItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NewsCard(
-      news: snapshotData,
+      snapshotData: snapshotData,
       onTapFav: onTapFav,
     );
   }

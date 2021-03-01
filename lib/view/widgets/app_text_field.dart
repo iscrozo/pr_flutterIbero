@@ -16,22 +16,16 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      textAlign: TextAlign.center,
       controller: aobController,
       obscureText: obscureText,
       decoration: InputDecoration(
-        prefixIcon: icon,
+        // suffixIcon: icon,
         hintText: hintText,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
         focusColor: Colors.black,
         fillColor: Colors.black,
         hoverColor: Colors.black,
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            30,
-          ),
-        ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
       ),
     );
   }

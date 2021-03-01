@@ -12,6 +12,7 @@ void stateChanges(context) {
       // showToastMessage(aobContext: context, asMessage: messages1);
     } else {
       print('User is signed in!');
+
       Future.delayed(Duration(seconds: 2), () {
         Navigator.pushNamed(context, '/news', arguments: user);
       });

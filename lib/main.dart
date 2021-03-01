@@ -2,6 +2,7 @@ import 'package:app1/util/strings.dart';
 import 'package:app1/view/login_page.dart';
 import 'package:app1/view/news_page.dart';
 import 'package:app1/view/register_page.dart';
+import 'package:app1/view/view_page.dart';
 import 'package:flutter/material.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 
@@ -34,6 +35,9 @@ class _MyAppState extends State<MyApp> {
             return MaterialPageRoute(builder: (context) => new NewsPage());
           case '/register':
             return MaterialPageRoute(builder: (context) => new RegisterPage());
+          case '/view':
+            return MaterialPageRoute(
+                builder: (context) => new ViewPage(settings.arguments));
           default:
             return null;
         }

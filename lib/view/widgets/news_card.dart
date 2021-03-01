@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewsCard extends StatelessWidget {
-  final News news;
+  final News snapshotData;
 
   final Function(News) onTapFav;
 
-  NewsCard({Key key, @required this.news, this.onTapFav}) : super(key: key);
+  NewsCard({Key key, @required this.snapshotData, this.onTapFav})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var widget;
     return Container(
       width: 344,
       height: MediaQuery.of(context).size.height / 1.72,
@@ -32,8 +34,8 @@ class NewsCard extends StatelessWidget {
                     topLeft: Radius.circular(10)),
                 image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: news.urlToImage != null
-                        ? NetworkImage(news.urlToImage)
+                    image: snapshotData.urlToImage != null
+                        ? NetworkImage(snapshotData.urlToImage)
                         : AssetImage('assets/img/backbit.png'))),
           ),
           Flexible(
@@ -42,13 +44,13 @@ class NewsCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(news.title ?? 'Title not find',
+                  Text(snapshotData.title ?? 'Title not find',
                       maxLines: 3,
                       style: GoogleFonts.signika(
                           fontSize: 20,
                           color: Colors.black,
                           fontWeight: FontWeight.bold)),
-                  Text(news.author ?? 'Author not find',
+                  Text(snapshotData.author ?? 'Author not find',
                       style: GoogleFonts.signika(
                           fontSize: 14,
                           color: Colors.black45,
@@ -56,7 +58,7 @@ class NewsCard extends StatelessWidget {
                   Container(
                     height: 10,
                   ),
-                  Text(news.description ?? 'Description not find',
+                  Text(snapshotData.description ?? 'Description not find',
                       maxLines: 3,
                       style: GoogleFonts.signika(
                           fontSize: 12,
@@ -78,18 +80,23 @@ class NewsCard extends StatelessWidget {
                           ? Icons.favorite_border_outlined
                           : Icons.favorite),
                       onPressed: () {
-                        onTapFav(news);
+                        onTapFav(snapshotData);
                       }),
                   InkWell(
-                    onTap: () {},
-                    child: Text(
-                      'MORE',
-                      style: GoogleFonts.signika(
-                          fontSize: 14,
-                          color: Colors.blueAccent,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  )
+                      onTap: () => Navigator.pushNamed(context, '/view',
+                          arguments: snapshotData),
+                      child: Row(
+                        children: [
+                          Icon(Icons.input_sharp),
+                          Text(
+                            'VIEW MORE',
+                            style: GoogleFonts.signika(
+                                fontSize: 14,
+                                color: Colors.blueAccent,
+                                fontWeight: FontWeight.normal),
+                          ),
+                        ],
+                      ))
                 ],
               ),
             ),

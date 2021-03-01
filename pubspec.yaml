@@ -95,10 +95,15 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
   assets:
+    # image
     - assets/img/BitLogo.png
     - assets/img/backbit.png
     - assets/img/BitLogo.png
     - assets/img/addFav.png
+    - assets/img/user.png
+    - assets/img/warning.png
     - assets/img/newspaper.png
+    # gif
     - assets/gif/reading.gif
+
 
