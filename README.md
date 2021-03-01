@@ -12,11 +12,16 @@
   </p>
 </p>
 
+### Adds plugins - project
+* Splash screen
+* Toast Message
+* Loading Animation
+* Icon - Name (pubspec)
 
 ## About Project
 
 Project iberoamericana </br>
-![imagen](https://user-images.githubusercontent.com/40553244/109448013-03b39480-7a13-11eb-9761-e71802163d43.png)
+![imagen](https://user-images.githubusercontent.com/40553244/109448013-03b39480-7a13-11eb-9761-e71802163d43.png {width=40px height=400px})
 
 </br>
 this is an project using api in a listView, etc ,..
