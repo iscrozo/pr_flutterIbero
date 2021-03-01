@@ -21,10 +21,11 @@
 ## About Project
 
 Project iberoamericana </br>
-<img style="margin:25" src="https://user-images.githubusercontent.com/40553244/109448013-03b39480-7a13-11eb-9761-e71802163d43.png" width=250>
+<p float="left">
+<img style="margin:5" src="https://user-images.githubusercontent.com/40553244/109448013-03b39480-7a13-11eb-9761-e71802163d43.png" width=250>
 
-<img style="margin:25" src="https://user-images.githubusercontent.com/40553244/109449360-39a64800-7a16-11eb-99ad-5eb15d3619aa.png" width=250>
-
+<img style="margin:5" src="https://user-images.githubusercontent.com/40553244/109449360-39a64800-7a16-11eb-99ad-5eb15d3619aa.png" width=250>
+</p>
 </br>
 this is an project using api in a listView, etc ,..
 
