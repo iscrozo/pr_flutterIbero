@@ -21,7 +21,7 @@
 
 ## About Project
 
-Project iberoamericana </br>
+This is an project using api in a listView, auth with Firebase, custom in some widgets. </br>It's the results of learn in BIT</br>
 <p float="left">
 <img style="margin:15" src="https://user-images.githubusercontent.com/40553244/109449647-fbf5ef00-7a16-11eb-8a12-db36efc23e65.png" width="250">
 <img style="margin:15" src="https://user-images.githubusercontent.com/40553244/109496711-076d0880-7a5f-11eb-8da9-6c1fcc26946e.png" width="250">
@@ -31,7 +31,7 @@ Project iberoamericana </br>
 </p>
 
 </br>
-this is an project using api in a listView, etc ,..
+
 
 ### Prerequisites
 It's necessary install, the next points
