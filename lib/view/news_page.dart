@@ -1,15 +1,18 @@
 import 'package:app1/presenter/build_view.dart';
 import 'package:app1/util/firebaseController.dart' as firebaseControl;
 import 'package:app1/view/widgets/drawer_option.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class NewsPage extends StatefulWidget {
+  User user;
   @override
   _NewsPageState createState() => _NewsPageState();
 }
 
 class _NewsPageState extends State<NewsPage> {
   int Newsint = 1;
+  User user;
 
   String viewName = 'NewsList';
   static const drawerOptions = <Map<String, dynamic>>[
@@ -42,6 +45,9 @@ class _NewsPageState extends State<NewsPage> {
       'icon': Icon(Icons.description)
     },
   ];
+
+  @override
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
@@ -78,10 +84,19 @@ class _NewsPageState extends State<NewsPage> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: CircleAvatar(
-                  radius: 70,
+                  radius: 10,
                   backgroundColor: Colors.transparent,
-                  child: Image.network(
-                      'https://bit.institute/images/Instituto-Cursos-Programacion.png'),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(bottom: 30),
+                        height: 50,
+                        width: 50,
+                        child: Image.asset("assets/img/user.png"),
+                      ),
+                      Text('')
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -1,8 +1,9 @@
 import 'package:app1/util/colors.dart';
 import 'package:app1/util/firebaseController.dart' as firebaseControl;
+import 'package:app1/util/strings.dart';
 import 'package:app1/util/styles.dart';
 import 'package:app1/view/widgets/app_text_field.dart';
-import 'package:app1/view/widgets/dialog_button.dart';
+import 'package:app1/view/widgets/showMessageNotify.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -226,18 +227,18 @@ class _RegisterPageState extends State<RegisterPage> {
                                                         ],
                                                       ),
                                                     ),
-                                                    actions: [
-                                                      DialogButton(
-                                                        text: 'OK !',
-                                                        addColors: btnVerde,
-                                                        addBackground:
-                                                            Colors.white,
-                                                        onPressed: () {
-                                                          Navigator.of(context)
-                                                              .pop();
-                                                        },
-                                                      )
-                                                    ],
+                                                    // actions: [
+                                                    //   DialogButton(
+                                                    //     text: 'OK !',
+                                                    //     addColors: btnVerde,
+                                                    //     addBackground:
+                                                    //         Colors.white,
+                                                    //     onPressed: () {
+                                                    //       Navigator.of(context)
+                                                    //           .pop();
+                                                    //     },
+                                                    //   )
+                                                    // ],
                                                   ));
                                         } else {
                                           // print("Fields full");
@@ -251,6 +252,13 @@ class _RegisterPageState extends State<RegisterPage> {
                                             aobContext: context,
                                           );
                                           firebaseControl.stateChanges(context);
+                                          showToastMessage(
+                                              aobContext: context,
+                                              asMessage: gsMessageLoading);
+
+                                          _textEditingControllerEmail.clear();
+                                          _textEditingControllerPassword
+                                              .clear();
                                         }
                                       });
                                     },

@@ -33,6 +33,7 @@ dependencies:
   firebase_auth: "^0.20.1"
   toast: ^0.1.5
   google_fonts: ^1.1.2
+  flutter_general_dialog: ^0.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
