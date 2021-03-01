@@ -21,7 +21,7 @@
 ## About Project
 
 Project iberoamericana </br>
-![imagen](https://user-images.githubusercontent.com/40553244/109448013-03b39480-7a13-11eb-9761-e71802163d43.png {width=40px height=400px})
+![imagen](https://user-images.githubusercontent.com/40553244/109448013-03b39480-7a13-11eb-9761-e71802163d43.png){:height="36px" width="36px"}.
 
 </br>
 this is an project using api in a listView, etc ,..
